@@ -1,43 +1,31 @@
-/************************************************
- *
- *
-  ***********************************************/
-
-  :root {
-    --red: #de2226;
-    --darkRed: #990033;
-    --white: #ffffff;
-    --black: #000000;
-    --grey: #808080;
-    padding: 0;
+html * {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
 body {
-    background: url('../images/site/background.jpg') no-repeat;
-    background-color:black;
-    background-size: cover;
+    background-image: url('../images/site/background.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
     min-width: 320px;
 }
 
-.wrapper-body {
-    margin: 1.5em;
-    background-color: var(--white);
+#page-header {
+    display: flex;
+    justify-content: space-between;
 }
 
-#logo {
-    width: 15vw;
-}
-
-#my-account a {
-    text-decoration: none;
-    color: unset;
+#logo-img {
+    width: 25%;
+    object-fit: contain;
 }
 
 #my-account {
-    position: absolute;
-    right: 40px;
-    top: 50px;
+    flex-direction: unset;
+    margin: 7px;
     font-size: 1.5em;
 }
 
@@ -46,124 +34,208 @@ body {
     margin-right: 5px;
 }
 
-.navigation {
-    height: 5em;
-    min-height: 50px;
-    min-width: 320px;
-    line-height: 50px;
-    background-color: var(--red);
+#full-body-wrapper {
+    margin: 3vw;
+    margin-top: 0;
+    margin-top: 0;
 }
 
-.navigation ul {
-    display: flex;
-    flex-direction: row;
-    flex-shrink: inherit;
+#navigation ul {
     padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    font-size: calc(7px + 0.55em);
 }
 
-.navigation ul li {
-    list-style-type: none;
+#navigation ul li {
+    min-height: 40px;
+    justify-content: space-between;
+}
+
+#navigation a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: .1em;
+    margin: 1em;
+}
+
+#hero-list {
+    width: min-content;
+    min-width: 56%;
+    position: relative;
+    left: 44%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .3);
+}
+
+#hero-des-list {
+    min-height: 120px;
+}
+
+#hero-des-list h2 {
+    font-size: 1.6em;
+}
+
+#hero-des-list li {
+    list-style: none;
+    color: #990033;
+}
+
+#rocket-reviews li {
+    margin: 2px 15px;
+}
+
+#rocket-reviews {
     margin: 10px;
-    padding: 10px;
-    font-size: 1.5em;
 }
 
-.navigation ul a {
-    text-decoration: none;
-    color: #ffffff;
-    
-}
-
-.navigation ul a:active {
-    color:var(--red);
-}
-
-.navigation ul li:active {
-    background-color: var(--white);
-    color:var(--red);
-}
-
-.wrapper-main {
-    font-size: 2em;
-}
-
-#hero {
-    background-image: url('../images/site/rocketfeature.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 25vw;
-    color: var(--darkRed);
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-#hero h2,
-#hero img {
-    list-style-type: none;
-}
-
-#hero ul {
-    background-color: rgba(255,255,255,.5);
-    width: 50%;
-    height: fit-content
-}
-
-#advertisement {
-    display: flex;
-}
-
-#featured_recipes {
-    width: 50vw;
-}
-
-#featured_recipes ul{
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    width: 50vw;
-}
-
-.featured_recipe_img {
-    background: var(--grey);
-    height:16vw;
-    margin: 5px;
-}
-
-#featured_recipes p {
-    font-size: .75em;
-    width: 5em;
-    text-align: center;
-}
-
-#featured_recipes a {
-    text-decoration: none;
-    color: black;
-}
-
-#rocket_reviews {
-    font-size: .8em;
-}
-
-footer {
-    text-align: center;
-}
-
-#footer-line {
-    height: 3px;
-    background-color: var(--black);
-    margin: 3px;
-}
-
-footer p {
+#rocket-reviews h2 {
     margin: 0;
 }
 
-
-@media screen and (min-width: 720) {
-    /* Do things for smaller screen */  
+.title {
+    font-size: 25px;
+    margin-left: 10px;
 }
 
-@media screen and (min-width: 500) {
-    /* Do things for mobile screens */
+#featured-recipes img {
+    border-right: 30px solid lightgrey;
+    border-left: 30px solid lightgrey;
+    width: 100px;
+}
+
+#line-break {
+    height: 2px;
+    background-color: black;
+}
+
+.flex_recipe_container {
+    display: flex;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.flex_recipe_container a {
+    color: #0000ee;
+}
+
+#featured-recipes {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+#navigation {
+    background-color: #de2226;
+    width: auto;
+    font-size: 2vw;
+    z-index: 100;
+}
+
+#full-body-wrapper {
+    background: white;
+}
+
+#acme-rocket {
+    background: url('../images//site/rocketfeature.jpg') no-repeat;
+    background-size: cover;
+    height: 35vw;
+    min-height: 120px;
+}
+
+#hero-des-list {
+    font-size: 0.78em;
+}
+
+#actionbtn {
+    margin-left: -1.1%;
+    width: 84%;
+    max-width: 227px;
+}
+
+footer {
+    margin-bottom: 2em;
+    text-align: center;
+    font-size: .7em;
+}
+
+/* content */
+
+.hide {
+    display: none;
+}
+
+#content-head {
+    margin: 7px;
+}
+
+#big-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row
+}
+
+#content-img {
+    height: 1%;
+    width: 25%;
+}
+
+#content-flex-container {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around
+}
+
+#content-flex-container div {
+    margin: 10px 0;
+}
+
+#content-price {
+    font-size: 2em;
+    color: #990033;
+}
+
+@media screen and (min-width: 500px) {
+    #full-body-wrapper {
+        margin: 6vw;
+        margin-top: 0;
+    }
+}
+
+#hero-des-list {
+    font-size: 1.3vw;
+}
+
+#hero-list {
+    background-color: unset;
+}
+
+#featured-recipes img {
+    border-right: 35px solid lightgrey;
+    border-left: 35px solid lightgrey;
+    width: 150px;
+}
+
+@media screen and (min-width: 800px) {
+    #full-body-wrapper {
+        margin: 10vw;
+        margin-top: 0;
+        background: white;
+    }
+
+    #full-flex-container {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-around
+    }
+
+    #featured-recipes img {
+        border-right: 35px solid lightgrey;
+        border-left: 35px solid lightgrey;
+        width: 150px;
+    }
 }
