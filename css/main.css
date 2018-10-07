@@ -1,0 +1,169 @@
+/************************************************
+ *
+ *
+  ***********************************************/
+
+  :root {
+    --red: #de2226;
+    --darkRed: #990033;
+    --white: #ffffff;
+    --black: #000000;
+    --grey: #808080;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: url('../images/site/background.jpg') no-repeat;
+    background-color:black;
+    background-size: cover;
+    min-width: 320px;
+}
+
+.wrapper-body {
+    margin: 1.5em;
+    background-color: var(--white);
+}
+
+#logo {
+    width: 15vw;
+}
+
+#my-account a {
+    text-decoration: none;
+    color: unset;
+}
+
+#my-account {
+    position: absolute;
+    right: 40px;
+    top: 50px;
+    font-size: 1.5em;
+}
+
+#my-account img {
+    width: 45px;
+    margin-right: 5px;
+}
+
+.navigation {
+    height: 5em;
+    min-height: 50px;
+    min-width: 320px;
+    line-height: 50px;
+    background-color: var(--red);
+}
+
+.navigation ul {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: inherit;
+    padding: 0;
+}
+
+.navigation ul li {
+    list-style-type: none;
+    margin: 10px;
+    padding: 10px;
+    font-size: 1.5em;
+}
+
+.navigation ul a {
+    text-decoration: none;
+    color: #ffffff;
+    
+}
+
+.navigation ul a:active {
+    color:var(--red);
+}
+
+.navigation ul li:active {
+    background-color: var(--white);
+    color:var(--red);
+}
+
+.wrapper-main {
+    font-size: 2em;
+}
+
+#hero {
+    background-image: url('../images/site/rocketfeature.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 25vw;
+    color: var(--darkRed);
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#hero h2,
+#hero img {
+    list-style-type: none;
+}
+
+#hero ul {
+    background-color: rgba(255,255,255,.5);
+    width: 50%;
+    height: fit-content
+}
+
+#advertisement {
+    display: flex;
+}
+
+#featured_recipes {
+    width: 50vw;
+}
+
+#featured_recipes ul{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 50vw;
+}
+
+.featured_recipe_img {
+    background: var(--grey);
+    height:16vw;
+    margin: 5px;
+}
+
+#featured_recipes p {
+    font-size: .75em;
+    width: 5em;
+    text-align: center;
+}
+
+#featured_recipes a {
+    text-decoration: none;
+    color: black;
+}
+
+#rocket_reviews {
+    font-size: .8em;
+}
+
+footer {
+    text-align: center;
+}
+
+#footer-line {
+    height: 3px;
+    background-color: var(--black);
+    margin: 3px;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+@media screen and (min-width: 720) {
+    /* Do things for smaller screen */  
+}
+
+@media screen and (min-width: 500) {
+    /* Do things for mobile screens */
+}
