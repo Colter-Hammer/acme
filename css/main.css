@@ -8,7 +8,7 @@ html * {
 body {
     background-image: url('/acme/images/site/background.jpg');
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
     width: 100%;
     min-width: 320px;
 }
@@ -140,7 +140,7 @@ body {
 }
 
 #acme-rocket {
-    background: url('../images//site/rocketfeature.jpg') no-repeat;
+    background: url('/images//site/rocketfeature.jpg') no-repeat;
     background-size: cover;
     height: 35vw;
     min-height: 120px;
@@ -196,7 +196,31 @@ footer {
 
 #content-price {
     font-size: 2em;
-    color: #990033;
+    color: #de2226;
+}
+
+.login {
+    margin-left: 8px;
+    width: 24%;
+    min-width: 175px;
+    height: 3%;
+    min-height: 25px;
+}
+
+#login_submit {
+    margin: 10px;
+    height: 4%;
+    width: 7%;
+    background-color: #de2226;
+    font-size: .85em;
+}
+
+#createAccount {
+    margin: 10px;
+    height: 7%;
+    width: 11%;
+    background-color: #de2226;
+    font-size: 1.5em;
 }
 
 @media screen and (min-width: 500px) {

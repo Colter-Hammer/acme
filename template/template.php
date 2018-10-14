@@ -1,22 +1,29 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Acme</title>
-        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="stylesheet" type="text/css" href="/acme/css/main.css">
     </head>
     
     <body>
-        <section class="wrapper-body">
-            <header class="wrapper-head">
-                <?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/template/header.php'; ?> 
-            </header>
-            <main class="wrapper-main">
-                <h1>Content Title Here</h1>
-                                
-            </main>
-        <hr id="footer-line">
-            <footer class="footer-wrapper">
-                <?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/footer.php'; ?>
-            </footer>
-        </section>
-    </body>
+  <div id="full-body-wrapper">
+    <header id="page-header">
+      <?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/header.php'; ?>
+    </header>
+
+    <nav id="navigation">
+      <?php echo $navList; ?>
+    </nav>
+
+    <main>
+      <div id="home-container">
+        <h1>Content Title Here</h1>
+      </div>
+    </main>
+    <div id="line-break"></div>
+    <footer>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/footer.php'; ?>
+    </footer>
+  </div>
+</body>
 </html>

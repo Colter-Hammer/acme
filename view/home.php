@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Acme</title>
@@ -11,7 +12,7 @@
     </header>
 
     <nav id="navigation">
-      <?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/nav.php'; ?>
+      <?php echo $navList; ?>
     </nav>
 
     <main>
