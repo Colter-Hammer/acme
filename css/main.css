@@ -13,6 +13,22 @@ body {
     min-width: 320px;
 }
 
+#login_submit {
+    margin: 10px;
+    height: 4%;
+    width: 7%;
+    background-color: #de2226;
+    font-size: .85em;
+}
+
+#createAccount {
+    margin: 10px;
+    height: 7%;
+    width: 11%;
+    background-color: #de2226;
+    font-size: 1.5em;
+}
+
 #page-header {
     display: flex;
     justify-content: space-between;
@@ -140,7 +156,7 @@ body {
 }
 
 #acme-rocket {
-    background: url('/images//site/rocketfeature.jpg') no-repeat;
+    background: url('/acme/images/site/rocketfeature.jpg') no-repeat;
     background-size: cover;
     height: 35vw;
     min-height: 120px;
@@ -207,21 +223,7 @@ footer {
     min-height: 25px;
 }
 
-#login_submit {
-    margin: 10px;
-    height: 4%;
-    width: 7%;
-    background-color: #de2226;
-    font-size: .85em;
-}
 
-#createAccount {
-    margin: 10px;
-    height: 7%;
-    width: 11%;
-    background-color: #de2226;
-    font-size: 1.5em;
-}
 
 @media screen and (min-width: 500px) {
     #full-body-wrapper {

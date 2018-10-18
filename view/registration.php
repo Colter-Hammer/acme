@@ -17,20 +17,31 @@
 
     <main>
       <div id="home-container">
-                <h1>Acme Login</h1>
-                <label>First Name*</label>
-                <input name="firstname" id="firstname" class="login" type="text"><br> 
-                <label>Last Name*</label>
-                <input name="lastname" id="lastname" class="login" type="text"><br>  
-                <label>Email*</label>
-                <input name="email" id="email" class="login" type="text"><br> 
-                <label>Password*</label>
-                <input name="password" id="password" class="login" type="password">  <br>  
-                <br>
-                <button type="button" id="login_submit">Submit</button>
-                
+        <h1>Acme Login</h1>
+        <?php
+            if (isset($message)) {
+              echo $message;
+            }
+            ?>
+            <form method="post" action="/acme/accounts/index.php">
 
-                <div>* Indicates required fields</div>
+        <label>First Name*</label>
+        <input type="text" name="clientFirstname" id="clientFirstname"><br/>
+        <label>Last Name*</label>
+        <input type="text" name="clientLastname" id="clientLastname"><br/>
+        <label>Email*</label>
+        <input type="email" name="clientEmail" id="clientEmail"><br/>
+        <label>Password*</label>
+        <input type="password" name="clientPassword" id="clientPassword"><br/>
+        <br>
+
+          <input type="submit" name="submit" id="regbtn" value="Register">
+
+        <!-- Add the action name - value pair -->
+          <input type="hidden" name="action" value="register">
+           </form>
+
+        <div>* Indicates required fields</div>
       </div>
     </main>
     <div id="line-break"></div>
