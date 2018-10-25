@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * Database connections
+ */
+
 function acmeConnect(){
     $server = "localhost";
     $database = "acme";
