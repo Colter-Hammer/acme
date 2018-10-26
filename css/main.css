@@ -13,25 +13,48 @@ body {
     min-width: 320px;
 }
 
-#login_submit {
+.submit {
     margin: 10px;
-    height: 4%;
-    width: 7%;
+    min-height: 27px;
     background-color: #de2226;
     font-size: .85em;
 }
 
 #createAccount {
-    margin: 10px;
-    height: 7%;
+    margin-top: 0px;
     width: 11%;
-    background-color: #de2226;
-    font-size: 1.5em;
 }
 
 #page-header {
     display: flex;
     justify-content: space-between;
+}
+
+form {
+    margin: 10px;
+}
+
+label {
+    display: inline-block;
+    /* float: left; */
+    clear: left;
+    width: 115px;
+    text-align: right;
+    margin-top: 5px;
+}
+
+input {
+    display: inline-block;
+    padding: 5px;
+    margin-top: 5px;
+    /* float: left; */
+}
+
+.big_btn {
+    width: 15%;
+    height: 35px;
+    position: relative;
+    left: 41%;
 }
 
 #logo-img {
@@ -215,7 +238,7 @@ footer {
     color: #de2226;
 }
 
-.login {
+.form {
     margin-left: 8px;
     width: 24%;
     min-width: 175px;

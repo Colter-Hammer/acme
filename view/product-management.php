@@ -18,10 +18,14 @@
 
             <main>
                 <div id="home-container">
+                    <form>
+                        <input class="submit big_btn" type="button" onclick="location.href='../products/index.php?action=addcat'"
+                            value="Add a Category">
 
-                    <button id="category" type="submit" formaction="category">Add a category</button>
-                    <button id="product" type="submit" name="action" value="product">Add a
-                        product</button>
+                        <br />
+                        <input class="submit big_btn" type="button" onclick="location.href='../products/index.php?action=addprod'"
+                            value="Add a Product">
+                    </form>
 
                 </div>
             </main>

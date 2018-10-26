@@ -23,10 +23,10 @@
 
                 <form method="post" action="/acme/products/index.php">
 
-                    <label>Category Name</label> <br />
+                    <label>Category Name</label>
                     <input type="text" name="catName" id="catName"><br />
 
-                    <input type="submit" name="submit" id="regbtn" value="Category">
+                    <input class="submit" type="submit" name="submit" id="catbtn" value="Category">
 
                     <!-- Add the action name - value pair -->
                     <input type="hidden" name="action" value="category">
@@ -36,7 +36,7 @@
             <footer>
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/footer.php';?>
             </footer>
-
+        </div>
     </body>
 
 </html>

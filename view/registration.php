@@ -26,17 +26,17 @@ if (isset($message)) {
 ?>
                     <form method="post" action="/acme/accounts/index.php">
 
-                        <label>First Name*</label> <br />
+                        <label>First Name*</label>
                         <input type="text" name="clientFirstname" id="clientFirstname"><br />
-                        <label>Last Name*</label><br />
+                        <label>Last Name*</label>
                         <input type="text" name="clientLastname" id="clientLastname"><br />
-                        <label>Email*</label><br />
+                        <label>Email*</label>
                         <input type="email" name="clientEmail" id="clientEmail"><br />
-                        <label>Password*</label><br />
+                        <label>Password*</label>
                         <input type="password" name="clientPassword" id="clientPassword"><br />
                         <br>
 
-                        <input type="submit" name="submit" id="regbtn" value="Register">
+                        <input class="submit" type="submit" name="submit" id="regbtn" value="Register">
 
                         <!-- Add the action name - value pair -->
                         <input type="hidden" name="action" value="register">

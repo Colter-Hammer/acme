@@ -27,7 +27,7 @@ $navList .= '</ul>';
 
 // Build a dropdown using the $categories array
 
-$catList = '<select name="invLocation" id="invLocation">';
+$catList = '<select name="categoryId" id="categoryId">';
 foreach ($categories as $category) {
     // use urlencode to get rid of any spaces.
     $catList .= '<option value="' . $category['categoryId'] . '">' . urlencode($category['categoryName']) . '</option>';
@@ -56,8 +56,7 @@ switch ($action) {
 
         // Check and report the result
         if ($catOutcome === 1) {
-            echo 'Things are woring or something';
-            header('Location: ./?action=category');
+            header('Location: http://localhost/acme/products/index.php');
             exit;
         } else {
             $message = "<p>$catName not successfully added. Please try again.</p>";
@@ -66,6 +65,7 @@ switch ($action) {
         }
 
         break;
+
     case 'product':
         // include '../view/product.php';
 
@@ -95,13 +95,21 @@ switch ($action) {
 
         // Check and report the result
         if ($prodOutcome === 1) {
-            $message = "<p>Thanks for registering $clientFirstname. Please use your email and password to login.</p>";
+            $message = "<p>$invName was added correctly. That's awesome!</p>";
+            include '../view/registration.php';
+
             exit;
         } else {
-            $message = "<p>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
+            $message = "<p>$invName wasn't added correctly. Please try again.</p>";
             include '../view/registration.php';
             exit;
         }
+        break;
+    case 'addprod':
+        include '../view/product.php';
+        break;
+    case 'addcat':
+        include '../view/category.php';
         break;
 
     default:

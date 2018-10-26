@@ -45,7 +45,7 @@ function addProduct($invName, $invDescription, $invImage, $invThumbnail, $invPri
     $db = acmeConnect();
 
     // The SQL statement
-    $sql = 'INSERT INTO inventory(invName, invDescription, invImage, invThumbnail, invPrice, invStock, invSize, invWeight, invLocation, categoryId, invVendor, invStyle) VALUES (:invName, :invDescription, :invImage, :invThumbnail, :invPrice, :invStock, :invSize, :invWeight, :invLocation, :categoryId, :invVendor, :invStyle)';
+    $sql = 'INSERT INTO inventory (invName, invDescription, invImage, invThumbnail, invPrice, invStock, invSize, invWeight, invLocation, categoryId, invVendor, invStyle) VALUES (:invName, :invDescription, :invImage, :invThumbnail, :invPrice, :invStock, :invSize, :invWeight, :invLocation, :categoryId, :invVendor, :invStyle)';
 
     // Create the prepared statement using the acme connection
     $stmt = $db->prepare($sql);
@@ -63,7 +63,7 @@ function addProduct($invName, $invDescription, $invImage, $invThumbnail, $invPri
     $stmt->bindValue(':invSize', $invSize, PDO::PARAM_STR);
     $stmt->bindValue(':invWeight', $invWeight, PDO::PARAM_STR);
     $stmt->bindValue(':invLocation', $invLocation, PDO::PARAM_STR);
-    $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_STR);
+    $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
     $stmt->bindValue(':invVendor', $invVendor, PDO::PARAM_STR);
     $stmt->bindValue(':invStyle', $invStyle, PDO::PARAM_STR);
 

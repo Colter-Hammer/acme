@@ -28,7 +28,9 @@
                     <label>Product Description</label>
                     <input type="text" name="invDescription" id="invDescription"><br />
                     <label>Product Picture</label>
-                    <input type="text" name="invImage" id="catNainvImageme"><br />
+                    <input type="text" name="invImage" id="invImage" value="/acme/images/no-image.png"><br />
+                    <label>Product Thumbnail</label>
+                    <input type="text" name="invThumbnail" id="invThumbnail" value="/acme/images/no-image.png"><br />
                     <label>Product Price</label>
                     <input type="text" name="invPrice" id="invPrice"><br />
                     <label>How many are in stock?</label>
@@ -47,7 +49,7 @@
                     <input type="text" name="invStyle" id="invStyle"><br />
 
 
-                    <input type="submit" name="submit" id="regbtn" value="Submit">
+                    <input type="submit" name="submit" id="prodbtn" value="Submit">
 
                     <!-- Add the action name - value pair -->
                     <input type="hidden" name="action" value="product">
@@ -57,7 +59,7 @@
             <footer>
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/footer.php';?>
             </footer>
-
+        </div>
     </body>
 
 </html>
