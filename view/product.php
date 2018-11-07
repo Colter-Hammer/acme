@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Page Title</title>
+        <title>Add a Product</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
     </head>
@@ -26,7 +26,7 @@
                     <label>Product Name</label>
                     <input type="text" name="invName" id="invName"><br />
                     <label>Product Description</label>
-                    <input type="text" name="invDescription" id="invDescription"><br />
+                    <input type="textarea" name="invDescription" id="invDescription"><br />
                     <label>Product Picture</label>
                     <input type="text" name="invImage" id="invImage" value="/acme/images/no-image.png"><br />
                     <label>Product Thumbnail</label>
