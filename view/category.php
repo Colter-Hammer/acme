@@ -26,7 +26,7 @@
                     <label>Category Name</label>
                     <input type="text" name="catName" id="catName"><br />
 
-                    <input class="submit" type="submit" name="submit" id="catbtn" value="Category">
+                    <input class="submit" type="submit" name="submit" id="catbtn" value="Submit">
 
                     <!-- Add the action name - value pair -->
                     <input type="hidden" name="action" value="category">

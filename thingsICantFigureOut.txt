@@ -1,0 +1,5 @@
+1. New product registration isn't working
+
+2. Text area form memory thing
+
+3. login server-side validation

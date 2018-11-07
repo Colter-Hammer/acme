@@ -57,6 +57,10 @@ input {
     left: 41%;
 }
 
+#pass_requirements {
+    font-size: .7em;
+}
+
 #logo-img {
     width: 25%;
     object-fit: contain;

@@ -19,14 +19,28 @@
             <main>
                 <div id="home-container">
                     <h1>Acme Login</h1>
-                    <label>Email Address</label>
-                    <input name="emailAddress" id="emailAddress" class="form login" type="text">
-                    <br>
-                    <label>Password</label>
-                    <input name="password" id="password" class="form login" type="password">
-                    <br>
-                    <button class="submit" type="button" id="login_submit">Submit</button>
-                    <br>
+                    <?php
+if (isset($message)) {
+    echo $message;
+}
+?>
+                    <form method="post" action="/acme/index.php">
+                        <div>* Indicates required fields</div>
+                        <label>Email Address*</label>
+                        <input type="email" name="clientEmail" id="clientEmail" <?php if (isset($clientEmail)) {echo
+                            "value='$clientEmail'" ;}?> required>
+                        <br>
+                        <label>Password*</label>
+                        <input type="password" name="clientPassword" id="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+                        <br>
+                        <span id="pass_requirements"> Password must include: 8+ characters, 1 uppercase, 1 lowercase, 1
+                            number, 1 special character</span>
+                        <br>
+                        <input class="submit" type="submit" name="submit" id="regbtn" value="Login">
+                        <input type="hidden" name="action" value="Login">
+                        <br>
+                    </form>
+
                     <form method="post" action="/acme/accounts/index.php?action=registration">
 
                         <button class="submit" id="createAccount" type="submit">Create Account</button>

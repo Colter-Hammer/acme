@@ -13,36 +13,32 @@ require_once '../library/connections.php';
 require_once '../model/acme-model.php';
 // Get the products model
 require_once '../model/products-model.php';
+// Get functions
+require_once '../library/functions.php';
 
 // Get array of categories from acme-model
 $categories = getCategories();
 
 // Build a navigation bar using the $categories array
-$navList = '<ul>';
-$navList .= "<li><a href='.' title='View the Acme home page'>Home</a></li>";
-foreach ($categories as $category) {
-    $navList .= "<li><a href='/acme/index.php?action=" . urlencode($category['categoryName']) . "' title='View our $category[categoryName] product line'>$category[categoryName]</a></li>";
-}
-$navList .= '</ul>';
+$navList = navBar($categories);
 
-// Build a dropdown using the $categories array
+// // Build a dropdown using the $categories array
 
-$catList = '<select name="categoryId" id="categoryId">';
-foreach ($categories as $category) {
-    // use urlencode to get rid of any spaces.
-    $catList .= '<option value="' . $category['categoryId'] . '">' . urlencode($category['categoryName']) . '</option>';
-}
+// $catList = '<select name="categoryId" id="categoryId">';
+// foreach ($categories as $category) {
+//     // use urlencode to get rid of any spaces.
+//     $catList .= '<option value="' . $category['categoryId'] . '">' . urlencode($category['categoryName']) . '</option>';
+// }
 
-$catList .= '</select>';
+// $catList .= '</select>';
 
 // Deliver views
 
 switch ($action) {
     case 'category':
-        // header('Location: ./?action=category');
 
         // Filter and store the data
-        $catName = filter_input(INPUT_POST, 'catName');
+        $catName = filter_input(INPUT_POST, 'catName', FILTER_SANITIZE_STRING);
 
         // Check for missing data
         if (empty($catName)) {
@@ -67,41 +63,43 @@ switch ($action) {
         break;
 
     case 'product':
-        // include '../view/product.php';
 
         // Filter and store the data
-        $invName = filter_input(INPUT_POST, 'invName');
-        $invDesciption = filter_input(INPUT_POST, 'invDesciption');
-        $invImage = filter_input(INPUT_POST, 'invImage');
-        $invThumbnail = filter_input(INPUT_POST, 'invThumbnail');
-        $invPrice = filter_input(INPUT_POST, 'invPrice');
-        $invStock = filter_input(INPUT_POST, 'invStock');
-        $invSize = filter_input(INPUT_POST, 'invSize');
-        $invWeight = filter_input(INPUT_POST, 'invWeight');
-        $invLocation = filter_input(INPUT_POST, 'invLocation');
-        $categoryId = filter_input(INPUT_POST, 'categoryId');
-        $invVendor = filter_input(INPUT_POST, 'invVendor');
-        $invStyle = filter_input(INPUT_POST, 'invStyle');
+        $invName = filter_input(INPUT_POST, 'invName', FILTER_SANITIZE_STRING);
+        $invDescription = filter_input(INPUT_POST, 'invDescription', FILTER_SANITIZE_STRING);
+        $invImage = filter_input(INPUT_POST, 'invImage', FILTER_SANITIZE_STRING);
+        $invThumbnail = filter_input(INPUT_POST, 'invThumbnail', FILTER_SANITIZE_STRING);
+        $invPrice = filter_input(INPUT_POST, 'invPrice', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+        $invStock = filter_input(INPUT_POST, 'invStock', FILTER_SANITIZE_NUMBER_INT);
+        $invSize = filter_input(INPUT_POST, 'invSize', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+        $invWeight = filter_input(INPUT_POST, 'invWeight', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+        $invLocation = filter_input(INPUT_POST, 'invLocation', FILTER_SANITIZE_STRING);
+        $categoryId = filter_input(INPUT_POST, 'categoryId', FILTER_SANITIZE_NUMBER_INT);
+        $invVendor = filter_input(INPUT_POST, 'invVendor', FILTER_SANITIZE_STRING);
+        $invStyle = filter_input(INPUT_POST, 'invStyle', FILTER_SANITIZE_STRING);
+
+        $invPrice = checkValue($invPrice);
 
         // Check for missing data
-        if (empty($invName) || empty($invDesciption) || empty($invImage) || empty($invThumbnail) || empty($invPrice) || empty($invStock) || empty($invSize) || empty($invWeight) || empty($invLocation) || empty($categoryId) || empty($invVendor) || empty($invStyle)) {
+        if (empty($invName) || empty($invDescription) || empty($invImage) || empty($invThumbnail) || empty($invPrice) || empty($invStock) || empty($invSize) || empty($invWeight) || empty($invLocation) || empty($categoryId) || empty($invVendor) || empty($invStyle)) {
             $message = '<p>Please provide information for all empty form fields.</p>';
             include '../view/product.php';
             exit;
         }
 
         // Send the data to the model
-        $prodOutcome = addProduct($invName, $invDesciption, $invImage, $invThumbnail, $invPrice, $invStock, $invSize, $invWeight, $invLocation, $categoryId, $invVendor, $invStyle);
+        $prodOutcome = addProduct($invName, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invSize, $invWeight, $invLocation, $categoryId, $invVendor, $invStyle);
 
         // Check and report the result
         if ($prodOutcome === 1) {
             $message = "<p>$invName was added correctly. That's awesome!</p>";
-            include '../view/registration.php';
+            include '../view/product.php';
 
             exit;
         } else {
             $message = "<p>$invName wasn't added correctly. Please try again.</p>";
-            include '../view/registration.php';
+            include '../view/product.php';
+
             exit;
         }
         break;
