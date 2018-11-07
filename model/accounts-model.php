@@ -3,37 +3,56 @@
 
 // New function for site registration
 
-function regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword){
- // Create a connection object using the acme connection function
- $db = acmeConnect();
- // The SQL statement 
- $sql = 'INSERT INTO clients (clientFirstname, clientLastname,clientEmail, clientPassword)
+function regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword)
+{
+    // Create a connection object using the acme connection function
+    $db = acmeConnect();
+    // The SQL statement
+    $sql = 'INSERT INTO clients (clientFirstname, clientLastname,clientEmail, clientPassword)
      VALUES (:clientFirstname, :clientLastname, :clientEmail, :clientPassword)';
- // Create the prepared statement using the acme connection
- $stmt = $db->prepare($sql);
+    // Create the prepared statement using the acme connection
+    $stmt = $db->prepare($sql);
 // The next four lines replace the placeholders in the SQL
- // statement with the actual values in the variables
- // and tells the database the type of data it is
- 
- $stmt->bindValue(':clientFirstname', $clientFirstname, PDO::PARAM_STR);
- $stmt->bindValue(':clientLastname', $clientLastname, PDO::PARAM_STR);
- $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
- $stmt->bindValue(':clientPassword', $clientPassword, PDO::PARAM_STR);
+    // statement with the actual values in the variables
+    // and tells the database the type of data it is
 
-// Insert the data 
+    $stmt->bindValue(':clientFirstname', $clientFirstname, PDO::PARAM_STR);
+    $stmt->bindValue(':clientLastname', $clientLastname, PDO::PARAM_STR);
+    $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
+    $stmt->bindValue(':clientPassword', $clientPassword, PDO::PARAM_STR);
 
- $stmt->execute();
+// Insert the data
 
- // Ask how many rows changed as a result of our insert 
- 
- $rowsChanged = $stmt->rowCount();
+    $stmt->execute();
 
- // Close the database interaction 
+    // Ask how many rows changed as a result of our insert
 
- $stmt->closeCursor();
+    $rowsChanged = $stmt->rowCount();
 
- // Return the indication of success (rows changed) 
+    // Close the database interaction
 
- return $rowsChanged;
+    $stmt->closeCursor();
+
+    // Return the indication of success (rows changed)
+
+    return $rowsChanged;
+
+}
+
+// Check for an existing email address
+function checkExistingEmail($clientEmail)
+{
+    $db = acmeConnect();
+    $sql = 'SELECT clientEmail FROM clients WHERE clientEmail = :email';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':email', $clientEmail, PDO::PARAM_STR);
+    $stmt->execute();
+    $matchEmail = $stmt->fetch(PDO::FETCH_NUM);
+    $stmt->closeCursor();
+    if (empty($matchEmail)) {
+        return 0;
+    } else {
+        return 1;
+    }
 
 }

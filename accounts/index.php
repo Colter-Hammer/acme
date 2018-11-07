@@ -39,6 +39,15 @@ switch ($action) {
         $clientEmail = checkEmail($clientEmail);
         $checkPassword = checkPassword($clientPassword);
 
+        $existingEmail = checkExistingEmail($clientEmail);
+
+// Check for existing email address in the table
+        if ($existingEmail) {
+            $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
+            include '../view/login.php';
+            exit;
+        }
+
 // Check for missing data
         if (empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($checkPassword)) {
             $message = '<p>Please provide information for all empty form fields.</p>';
@@ -54,6 +63,8 @@ switch ($action) {
 
 // Check and report the result
         if ($regOutcome === 1) {
+            setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');
+
             $message = "<p>Thanks for registering $clientFirstname. Please use your email and password to login.</p>";
             include '../view/login.php';
             exit;
