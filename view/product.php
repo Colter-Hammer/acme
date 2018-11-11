@@ -1,4 +1,9 @@
 <?php
+// echo $_SESSION['clientData']['clientLevel'];
+if (!($_SESSION['loggedin'] && $_SESSION['clientData']['clientLevel'] > 1)) {
+    header('Location: /acme/index.php');
+}
+
 // Build a dropdown using the $categories array
 
 $catList = '<select name="categoryId" id="categoryId">';

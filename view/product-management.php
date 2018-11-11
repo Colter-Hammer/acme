@@ -1,9 +1,16 @@
+<?php
+// echo $_SESSION['clientData']['clientLevel'];
+
+if (!($_SESSION['loggedin'] && $_SESSION['clientData']['clientLevel'] > 1)) {
+    header('Location: /acme/index.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 
     <head>
         <title>Acme</title>
-        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
     </head>
 
     <body>

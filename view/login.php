@@ -3,7 +3,7 @@
 
     <head>
         <title>Login</title>
-        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
     </head>
 
     <body>
@@ -20,11 +20,12 @@
                 <div id="home-container">
                     <h1>Acme Login</h1>
                     <?php
-if (isset($message)) {
-    echo $message;
+if (isset($_SESSION['message'])) {
+    echo $_SESSION['message'];
 }
+
 ?>
-                    <form method="post" action="/acme/index.php">
+                    <form method="post" action="/acme/accounts/">
                         <div>* Indicates required fields</div>
                         <label>Email Address*</label>
                         <input type="email" name="clientEmail" id="clientEmail" <?php if (isset($clientEmail)) {echo

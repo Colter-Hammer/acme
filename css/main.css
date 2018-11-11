@@ -1,3 +1,4 @@
+/* Universal */
 html * {
     box-sizing: border-box;
     margin: 0;
@@ -13,6 +14,39 @@ body {
     min-width: 320px;
 }
 
+/*** All pages ***/
+/* Header */
+#page-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#logo-img img {
+    width: 50%;
+    object-fit: contain;
+}
+
+#my-account {
+    flex-direction: unset;
+    margin: 7px;
+    font-size: 1.5em;
+}
+
+#my-account span {
+    font-size: smaller;
+    margin: .5em;
+}
+
+#my-account a {
+    text-decoration: none;
+}
+
+#my-account img {
+    width: 45px;
+    margin-right: 5px;
+}
+
+/* Footer */
 .submit {
     margin: 10px;
     min-height: 27px;
@@ -25,13 +59,15 @@ body {
     width: 11%;
 }
 
-#page-header {
-    display: flex;
-    justify-content: space-between;
-}
+
 
 form {
     margin: 10px;
+}
+
+#user_data li,
+#user_data~p {
+    margin: .5em 2em;
 }
 
 label {
@@ -61,21 +97,6 @@ input {
     font-size: .7em;
 }
 
-#logo-img {
-    width: 25%;
-    object-fit: contain;
-}
-
-#my-account {
-    flex-direction: unset;
-    margin: 7px;
-    font-size: 1.5em;
-}
-
-#my-account img {
-    width: 45px;
-    margin-right: 5px;
-}
 
 #full-body-wrapper {
     margin: 3vw;
