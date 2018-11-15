@@ -1,8 +1,8 @@
 <?php
 // echo $_SESSION['clientData']['clientLevel'];
 
-if (!($_SESSION['loggedin'] && $_SESSION['clientData']['clientLevel'] > 1)) {
-    header('Location: /acme/index.php');
+if (isset($_SESSION['clientData']['clientLevel']) < 2) {
+    header('Location: /acme/');
 }
 ?>
 <!DOCTYPE html>

@@ -1,10 +1,14 @@
 <?php
 
+if (isset($_SESSION['clientData']['clientLevel']) < 2) {
+    header('Location: /acme/');
+}
+
 // Products Controller
 
-$action = filter_input(INPUT_POST, 'action');
+$action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
 if ($action == null) {
-    $action = filter_input(INPUT_GET, 'action');
+    $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
 }
 
 // Create or access a Session

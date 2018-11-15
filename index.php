@@ -1,16 +1,16 @@
 <?php
-$action = filter_input(INPUT_POST, 'action');
+$action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
 if ($action == null) {
-    $action = filter_input(INPUT_GET, 'action');
+    $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
 }
-
-// Create or access a Session
-session_start();
 
 // Check if the firstname cookie exists, get its value
 if (isset($_COOKIE['firstname'])) {
     $cookieFirstname = filter_input(INPUT_COOKIE, 'firstname', FILTER_SANITIZE_STRING);
 }
+
+// Create or access a Session
+session_start();
 
 // Get the database connection file
 require_once 'library/connections.php';

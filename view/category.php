@@ -1,8 +1,3 @@
-<?php
-if (!($_SESSION['loggedin'] && $_SESSION['clientData']['clientLevel'] > 1)) {
-    header('Location: /acme/index.php');
-}
-?>
 <!DOCTYPE html>
 <html>
 

@@ -1,6 +1,13 @@
 <?php
 if (!$_SESSION['loggedin']) {
-    header('Location: /acme/index.php');
+    echo "truthy";
+    // header('Location: /acme/index.php');
+}
+if (!$_SESSION['loggedin'] == true) {
+    echo "Double equals";
+}
+if (!$_SESSION['loggedin'] === true) {
+    echo "Triple equals";
 }
 
 ?>
