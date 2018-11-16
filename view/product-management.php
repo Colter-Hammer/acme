@@ -1,15 +1,19 @@
 <?php
-// echo $_SESSION['clientData']['clientLevel'];
-
-if (isset($_SESSION['clientData']['clientLevel']) < 2) {
-    header('Location: /acme/');
+if ($_SESSION['clientData']['clientLevel'] < 2) {
+    header('Location: /acme/accounts');
+    exit;
 }
+
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+}
+
 ?>
 <!DOCTYPE html>
 <html>
 
     <head>
-        <title>Acme</title>
+        <title>Product Management</title>
         <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
     </head>
 
@@ -33,6 +37,13 @@ if (isset($_SESSION['clientData']['clientLevel']) < 2) {
                         <input class="submit big_btn" type="button" onclick="location.href='../products/index.php?action=addprod'"
                             value="Add a Product">
                     </form>
+                    <?php
+if (isset($message)) {
+    echo $message;
+}if (isset($prodList)) {
+    echo $prodList;
+}
+?>
 
                 </div>
             </main>
@@ -44,3 +55,4 @@ if (isset($_SESSION['clientData']['clientLevel']) < 2) {
     </body>
 
 </html>
+<?php unset($_SESSION['message']);?>

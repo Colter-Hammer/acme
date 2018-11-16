@@ -1,7 +1,7 @@
 <?php
 if (!$_SESSION['loggedin']) {
     echo "truthy";
-    // header('Location: /acme/index.php');
+    header('Location: /acme/index.php');
 }
 if (!$_SESSION['loggedin'] == true) {
     echo "Double equals";
@@ -56,7 +56,7 @@ if (!$_SESSION['loggedin'] === true) {
 
                 <?php
 if ($clientData['clientLevel'] > 1) {
-    echo '<p><a href="../products">Product Management</a></p>';
+    echo '<p><a href="../products/index.php">Product Management</a></p>';
 }
 ?>
             </main>
