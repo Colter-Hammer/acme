@@ -71,3 +71,18 @@ function getClient($clientEmail)
     $stmt->closeCursor();
     return $clientData;
 }
+
+function updateAccount($clientFirstname, $clientLastname, $clientEmail, $clientId)
+{
+    $db = acmeConnect();
+    $sql = 'UPDATE client SET clientFirstname = :clientFirstname, clientLastname = :clientLastname, clientEmail=:clientEmail WHERE clientId=:clientId';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':clientFirstname', $clientFirstname, PDO::PARAM_STR);
+    $stmt->bindValue(':clientLastname', $clientLastname, PDO::PARAM_STR);
+    $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
+    $stmt->bindValue(':clientId', $clientId, PDO::PARAM_INT);
+    $stmt->execute();
+    $rowCount = $stmt->rowCount();
+    $stmt->closeCursor();
+    return $rowCount;
+}

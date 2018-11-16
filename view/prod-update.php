@@ -1,4 +1,10 @@
 <?php
+
+if ($_SESSION['clientData']['clientLevel'] < 2) {
+    header('Location: /acme/accounts');
+    exit;
+}
+
 // Build a dropdown using the $categories array
 
 $catList = '<select name="categoryId" id="categoryId">';

@@ -130,7 +130,25 @@ switch ($action) {
 
     case 'logout':
         session_destroy();
-        header('Location: /acme/index.php');
+        header('Location: /acme/');
+        break;
+    case 'update':
+
+        $clientFirstname = $_SESSION['clientData']['clientFirstname'];
+        $clientLastname = $_SESSION['clientData']['clientLastname'];
+        $clientEmail = $_SESSION['clientData']['clientEmail'];
+        $clientId = $_SESSION['clientData']['clientId'];
+
+        include '../view/client-update.php';
+        break;
+
+    case 'updateAccount':
+        $returnValue = updateAccount($clientFirstname, $clientLastname, $clientEmail, $clientId);
+        echo $returnValue;
+        include '../view/client-update.php';
+        break;
+    case 'updatePassword':
+        // Update password
         break;
     default:
         include '../view/admin.php';

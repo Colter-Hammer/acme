@@ -111,6 +111,16 @@ switch ($action) {
 
         break;
 
+    case 'del':
+        $invId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        $prodInfo = getProductInfo($invId);
+        if (count($prodInfo) < 1) {
+            $message = 'Sorry, no product information could be found.';
+        }
+        include '../view/prod-delete.php';
+
+        break;
+
     case 'updateProd':
 
         // Filter and store the data
@@ -138,7 +148,7 @@ switch ($action) {
         }
 
 // Send the data to the model
-        $updateResult = updateProducts($invId, $invName, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invSize, $invWeight, $invLocation, $categoryId, $invVendor, $invStyle);
+        $updateResult = updateProduct($invId, $invName, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invSize, $invWeight, $invLocation, $categoryId, $invVendor, $invStyle);
 
 // Check and report the result
         if ($updateResult) {
@@ -155,6 +165,23 @@ switch ($action) {
 
         break;
 
+    case 'deleteProd':
+        $invName = filter_input(INPUT_POST, 'invName', FILTER_SANITIZE_STRING);
+        $invId = filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT);
+
+        $deleteResult = deleteProduct($invId);
+        if ($deleteResult) {
+            $message = "<p class='notice'>Congratulations, $invName was successfully deleted.</p>";
+            $_SESSION['message'] = $message;
+            header('location: /acme/products/');
+            exit;
+        } else {
+            $message = "<p class='notice'>Error: $invName was not deleted.</p>";
+            $_SESSION['message'] = $message;
+            header('location: /acme/products/');
+            exit;
+        }
+        break;
     default:
         $products = getProductBasics();
         if (count($products) > 0) {

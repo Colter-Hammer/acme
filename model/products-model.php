@@ -109,8 +109,8 @@ function getProductInfo($invId)
     return $prodInfo;
 }
 
-// updateProducts
-function updateProducts($invId, $invName, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invSize, $invWeight, $invLocation, $categoryId, $invVendor, $invStyle)
+// updateProduct
+function updateProduct($invId, $invName, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invSize, $invWeight, $invLocation, $categoryId, $invVendor, $invStyle)
 {
     // Create a connection object using the acme connection function
     $db = acmeConnect();
@@ -153,5 +153,17 @@ function updateProducts($invId, $invName, $invDescription, $invImage, $invThumbn
 
     // Return the indication of success (rows changed)
 
+    return $rowsChanged;
+}
+
+function deleteProduct($invId)
+{
+    $db = acmeConnect();
+    $sql = 'DELETE FROM inventory WHERE invId = :invId';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
+    $stmt->execute();
+    $rowsChanged = $stmt->rowCount();
+    $stmt->closeCursor();
     return $rowsChanged;
 }

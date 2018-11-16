@@ -1,17 +1,3 @@
-<?php
-print_r($_SESSION);
-// if ($_SESSION['loggedin']) {
-//     echo "truthy <br/>";
-//     // header('Location: /acme/index.php');
-// }
-// if ($_SESSION['loggedin'] == true) {
-//     echo "Double equals<br/>";
-// }
-// if ($_SESSION['loggedin'] === true) {
-//     echo "Triple equals<br/>";
-// }
-
-?>
 <!DOCTYPE html>
 <html>
 

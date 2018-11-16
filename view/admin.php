@@ -1,15 +1,7 @@
 <?php
 if (!$_SESSION['loggedin']) {
-    echo "truthy";
     header('Location: /acme/index.php');
 }
-if (!$_SESSION['loggedin'] == true) {
-    echo "Double equals";
-}
-if (!$_SESSION['loggedin'] === true) {
-    echo "Triple equals";
-}
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,6 +15,7 @@ if (!$_SESSION['loggedin'] === true) {
         <div id="full-body-wrapper">
             <header id="page-header">
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/header.php';?>
+
             </header>
 
             <nav id="navigation">
@@ -33,8 +26,13 @@ if (!$_SESSION['loggedin'] === true) {
                 <div id="home-container">
                     <h1>Admin View</h1>
                 </div>
-                <h1>Logged in user:
-                    <?php echo $clientData['clientFirstname'] ?>
+                <?php
+if (isset($message)) {
+    echo $message;
+}
+?>
+                <h1>
+                    <?php echo $clientData['clientFirstname'] ?> Log in Successful
                 </h1>
                 <ul id="user_data">
                     <li>ID number:
@@ -49,16 +47,16 @@ if (!$_SESSION['loggedin'] === true) {
                     <li>Email address:
                         <?php echo $clientData['clientEmail'] ?>
                     </li>
-                    <li>Access level:
-                        <?php echo $clientData['clientLevel'] ?>
-                    </li>
                 </ul>
 
                 <?php
 if ($clientData['clientLevel'] > 1) {
-    echo '<p><a href="../products/index.php">Product Management</a></p>';
+    echo '<p>Use the following link to manage products</p>';
+    echo '<p><a href="../products/">Product Management</a></p>';
+    echo '<a href="../accounts?action=update">Update Account</a>';
 }
 ?>
+
             </main>
             <div id="line-break"></div>
             <footer>
