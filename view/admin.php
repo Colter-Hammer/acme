@@ -27,35 +27,37 @@ if (!$_SESSION['loggedin']) {
                     <h1>Admin View</h1>
                 </div>
                 <?php
-if (isset($message)) {
-    echo $message;
-}
-?>
+                if (isset($message)) {
+                    echo $message;
+                }
+                ?>
                 <h1>
-                    <?php echo $clientData['clientFirstname'] ?> Log in Successful
+                    <?php if (isset($clientData)) {echo $clientData['clientFirstname'];} elseif (isset($_SESSION['clientData']['clientFirstname'])) {echo $_SESSION['clientData']['clientFirstname'];} ?>
+                    Log in
+                    Successful
                 </h1>
                 <ul id="user_data">
                     <li>ID number:
-                        <?php echo $clientData['clientId'] ?>
+                        <?php if (isset($clientData)) {echo $clientData['clientId'];} elseif (isset($_SESSION['clientData']['clientId'])) {echo $_SESSION['clientData']['clientId'];} ?>
                     </li>
                     <li>First name:
-                        <?php echo $clientData['clientFirstname'] ?>
+                        <?php if (isset($clientData)) {echo $clientData['clientFirstname'];} elseif (isset($_SESSION['clientData']['clientFirstname'])) {echo $_SESSION['clientData']['clientFirstname'];} ?>
                     </li>
                     <li>Last name:
-                        <?php echo $clientData['clientLastname'] ?>
+                        <?php if (isset($clientData)) {echo $clientData['clientLastname'];} elseif (isset($_SESSION['clientData']['clientLastname'])) {echo $_SESSION['clientData']['clientLastname'];} ?>
                     </li>
                     <li>Email address:
-                        <?php echo $clientData['clientEmail'] ?>
+                        <?php if (isset($clientData)) {echo $clientData['clientEmail'];} elseif (isset($_SESSION['clientData']['clientEmail'])) {echo $_SESSION['clientData']['clientEmail'];} ?>
                     </li>
                 </ul>
 
                 <?php
-if ($clientData['clientLevel'] > 1) {
-    echo '<p>Use the following link to manage products</p>';
-    echo '<p><a href="../products/">Product Management</a></p>';
-    echo '<a href="../accounts?action=update">Update Account</a>';
-}
-?>
+                if ($_SESSION['clientData']['clientLevel'] > 1) {
+                    echo '<p>Use the following link to manage products</p>';
+                    echo '<p><a href="../products/">Product Management</a></p>';
+                }
+                    echo '<a href="../accounts?action=update">Update Account</a>';
+                ?>
 
             </main>
             <div id="line-break"></div>

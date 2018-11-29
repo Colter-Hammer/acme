@@ -25,29 +25,35 @@ if (!$_SESSION['loggedin']) {
                 <div id="home-container">
                     <h1>Update Account</h1>
                     <?php
-if (isset($message)) {
-    echo $message;
-}
+                        if (isset($message)) {
+                            echo $message;
+                        }
+                    ?>
 
-?>
                     <form method="post" action="/acme/accounts/index.php">
+
                         <label>First Name</label>
+
                         <input type="text" name="clientFirstname" id="clientFirstname" <?php if
-                            (isset($clientFirstname)) {echo "value='$clientFirstname'" ;}?>
+                            (isset($_SESSION['clientData']['clientFirstname'])) {echo "value=" .
+                            $_SESSION['clientData']['clientFirstname'] ;}?>
                         required> <br />
 
                         <label>Last Name</label>
-                        <input type="text" name="clientLasttname" id="clientLasttname" <?php if
-                            (isset($clientLastname)) {echo "value='$clientLastname'" ;}?>
-                        required><br />
+
+                        <input type="text" name="clientLastname" id="clientLastname" <?php if
+                            (isset($_SESSION['clientData']['clientLastname'])) {echo "value=" .
+                            $_SESSION['clientData']['clientLastname'] ;}?> required> <br />
 
                         <label>Email Address</label>
-                        <input type="text" name="clientEmail" id="clientEmail" <?php if (isset($clientEmail)) {echo
-                            "value='$clientEmail'" ;}?>
-                        required>
-                        <br />
-                        <input type="hidden" name="clientId" <?php if (isset($_SESSION['clientData']['clientId']))
-                            {echo "$clientId" ;}?>>
+
+                        <input type="text" name="clientEmail" id="clientEmail" <?php if
+                            (isset($_SESSION['clientData']['clientEmail'])) {echo "value=" .
+                            $_SESSION['clientData']['clientEmail'] ;}?> required> <br />
+
+                        <input type="hidden" name="clientId" id="clientId" <?php if
+                            (isset($_SESSION['clientData']['clientId'])){echo "value=" .
+                            $_SESSION['clientData']['clientId'] ;}?>>
 
                         <input class="submit" type="submit" name="submit" id="regbtn" value="Update Account">
 
@@ -57,8 +63,14 @@ if (isset($message)) {
 
 
                     <h1>Change Password</h1>
-                    <form>
-                        <input type="password" name="clientPassword" id="clientPassword"> </form>
+                    <form method="post" action="/acme/accounts/index.php">
+                        <label>New Password</label>
+                        <input type="password" name="clientPassword" id="clientPassword">
+                        <input type="hidden" name="clientId" <?php if(isset($clientId)){echo "value=$clientId" ;}?>>
+                        <br />
+                        <input type="submit" class="submit" name="submit" id="passbtn" value="Change Password">
+                        <input type="hidden" name="action" value="updatePassword">
+                    </form>
                 </div>
             </main>
             <div id="line-break">

@@ -8,7 +8,7 @@ function navBar($categories)
     $navList = '<ul>';
     $navList .= "<li><a href='.' title='View the Acme home page'>Home</a></li>";
     foreach ($categories as $category) {
-        $navList .= "<li><a href='/acme/index.php?action=" . urlencode($category['categoryName']) . "' title='View our $category[categoryName] product line'>$category[categoryName]</a></li>";
+        $navList .= "<li><a href='/acme/products/?action=cat&categoryName=" . urlencode($category['categoryName']) . "' title='View our $category[categoryName] product line'>$category[categoryName]</a></li>";
     }
     $navList .= '</ul>';
     return $navList;
@@ -40,4 +40,19 @@ function checkValue($invPrice)
         return "Not a correct price";
     }
 
+}
+
+// Build a display of products within an unordered list
+function buildProductsDisplay($products){
+ $pd = '<ul id="prod-display">';
+ foreach ($products as $product) {
+  $pd .= '<li>';
+  $pd .= "<img src='$product[invThumbnail]' alt='Image of $product[invName] on Acme.com'>";
+  $pd .= '<hr>';
+  $pd .= "<h2>$product[invName]</h2>";
+  $pd .= "<span>$product[invPrice]</span>";
+  $pd .= '</li>';
+ }
+ $pd .= '</ul>';
+ return $pd;
 }

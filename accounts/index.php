@@ -133,22 +133,65 @@ switch ($action) {
         header('Location: /acme/');
         break;
     case 'update':
-
         $clientFirstname = $_SESSION['clientData']['clientFirstname'];
         $clientLastname = $_SESSION['clientData']['clientLastname'];
         $clientEmail = $_SESSION['clientData']['clientEmail'];
         $clientId = $_SESSION['clientData']['clientId'];
 
+
         include '../view/client-update.php';
         break;
 
     case 'updateAccount':
+        $clientFirstname = filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_STRING);
+        $clientLastname = filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_STRING);
+        $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
+        $clientId = filter_input(INPUT_POST, 'clientId');
+
+        if (empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($clientId)) {
+            $message = '<p>Please provide information for all empty form fields.</p>';
+            include '../view/client-update.php';
+            exit;
+        }
+
+        // check if email is different, check to make sure it doesn't already exist
+        if ($clientEmail !== $_SESSION['clientData']['clientEmail']) {
+            // Check if email matches standards
+            $clientEmail = checkEmail($clientEmail);
+            //Check if email exists already
+            $existingEmail = checkExistingEmail($clientEmail);
+            
+            if ($existingEmail) {
+                $message = '<p class="notice">That email address already exists.</p>';
+                include '../view/client-update.php';
+                exit;
+            }   
+        }
+
         $returnValue = updateAccount($clientFirstname, $clientLastname, $clientEmail, $clientId);
-        echo $returnValue;
-        include '../view/client-update.php';
+        
+        if($returnValue == 1) {
+            $message = "Account information changed correctly";
+        } else {
+            $message = "Account information not changed";
+        }
+        
+
+        header('location:/acme/accounts');
         break;
     case 'updatePassword':
-        // Update password
+        $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
+        $clientId= filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
+        $hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
+
+        $passChange = updatePassword($clientId, $hashedPassword);
+        if($passChange == 1) {
+            $message = "Password changed";
+        } else {
+            $message = "Password not changed";
+        }
+        
+        include '../view/client-update.php';
         break;
     default:
         include '../view/admin.php';
