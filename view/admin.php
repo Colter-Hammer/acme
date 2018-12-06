@@ -26,16 +26,14 @@ if (!$_SESSION['loggedin']) {
                 <div id="home-container">
                     <h1>Admin View</h1>
                 </div>
+                <h1>
+                    <?php if (isset($clientData)) {echo $clientData['clientFirstname'];} elseif (isset($_SESSION['clientData']['clientFirstname'])) {echo $_SESSION['clientData']['clientFirstname'];} ?>
+                </h1>
                 <?php
                 if (isset($message)) {
                     echo $message;
                 }
                 ?>
-                <h1>
-                    <?php if (isset($clientData)) {echo $clientData['clientFirstname'];} elseif (isset($_SESSION['clientData']['clientFirstname'])) {echo $_SESSION['clientData']['clientFirstname'];} ?>
-                    Log in
-                    Successful
-                </h1>
                 <ul id="user_data">
                     <li>ID number:
                         <?php if (isset($clientData)) {echo $clientData['clientId'];} elseif (isset($_SESSION['clientData']['clientId'])) {echo $_SESSION['clientData']['clientId'];} ?>

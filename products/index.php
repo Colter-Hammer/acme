@@ -18,6 +18,8 @@ require_once '../model/acme-model.php';
 require_once '../model/products-model.php';
 // Get functions
 require_once '../library/functions.php';
+// Get functions from uploads
+require_once '../model/uploads-model.php';
 
 // Get array of categories from acme-model
 $categories = getCategories();
@@ -194,6 +196,18 @@ switch ($action) {
             
             // echo $prodDisplay;
             include '../view/cat.php';
+        break;
+        case 'prodDetails':
+            $productId = filter_input(INPUT_GET, 'productId', FILTER_SANITIZE_STRING);
+            $productDetails = getProductDetails($productId)[0];
+            // print_r($productDetails);
+            $prod = buildProdDetailsDisplay($productDetails);
+
+            $extraImgs = getTn($productId);
+            
+            $imagesDisplay = thumbnailImages($extraImgs);
+            
+            include '../view/product-details.php';
         break;
     default:
         $products = getProductBasics();

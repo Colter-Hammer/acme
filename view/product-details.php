@@ -2,8 +2,7 @@
 <html>
 
     <head>
-        <title>
-            <?php echo $categoryName; ?> Products | Acme, Inc.</title>
+        <title>Acme</title>
         <link rel="stylesheet" type="text/css" href="/acme/css/main.css">
     </head>
 
@@ -18,12 +17,12 @@
             </nav>
 
             <main>
-                <div id="home-container">
-                    <h1>
-                        <?php echo $categoryName;?> Products</h1>
-                    <?php if(isset($prodDisplay)){ 
-                        echo $prodDisplay; 
-                    } ?>
+                <div id="product-container">
+                    <?php echo $prod?>
+                </div>
+                <div id="prod_imgs">
+                    <?php echo $imagesDisplay;?>
+
                 </div>
             </main>
             <div id="line-break"></div>

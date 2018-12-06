@@ -179,3 +179,14 @@ function getProductsByCategory($categoryName){
  $stmt->closeCursor();
  return $products;
 }
+
+function getProductDetails($productId) {
+ $db = acmeConnect();
+ $sql = 'SELECT * FROM inventory WHERE invId = :productId';
+ $stmt = $db->prepare($sql);
+ $stmt->bindValue(':productId', $productId, PDO::PARAM_INT);
+ $stmt->execute();
+ $productDetails = $stmt->fetchAll(PDO::FETCH_ASSOC);
+ $stmt->closeCursor();
+ return $productDetails;
+}

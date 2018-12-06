@@ -20,8 +20,8 @@
                 <div id="home-container">
                     <h1>Acme Login</h1>
                     <?php
-if (isset($_SESSION['message'])) {
-    echo $_SESSION['message'];
+if (isset($message)) {
+    echo $message;
 }
 
 ?>

@@ -107,12 +107,14 @@ switch ($action) {
             $message = '<p>Please check your password and try again.</p>';
             include '../view/login.php';
             exit;
+        } else {
+            $message = '<p>Login Successful</p>';
         }
 
 // A valid user exists, log them in
         $_SESSION['loggedin'] = true;
 
-// Remove the password from the array
+        // Remove the password from the array
         // the array_pop function removes the last
         // element from an array
         array_pop($clientData);
@@ -171,13 +173,28 @@ switch ($action) {
         $returnValue = updateAccount($clientFirstname, $clientLastname, $clientEmail, $clientId);
         
         if($returnValue == 1) {
-            $message = "Account information changed correctly";
+
+            // Query the client data based on the email address
+            $clientData = getClient($clientEmail);
+
+            // Remove the password from the array
+            // the array_pop function removes the last
+            // element from an array
+            array_pop($clientData);
+
+            // Store the array into the session
+            $_SESSION['clientData'] = $clientData;
+
+            $message = "<span>Account information changed correctly</span>";
+
         } else {
-            $message = "Account information not changed";
+
+            $message = "<p>Account information not changed</p>";
+            
         }
         
 
-        header('location:/acme/accounts');
+        include '../view/admin.php';
         break;
     case 'updatePassword':
         $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);

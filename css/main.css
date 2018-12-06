@@ -6,6 +6,17 @@ html * {
     font-family: sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
 body {
     background-image: url('/acme/images/site/background.jpg');
     background-repeat: no-repeat;
@@ -37,10 +48,6 @@ body {
     margin: .5em;
 }
 
-#my-account a {
-    text-decoration: none;
-}
-
 #my-account img {
     width: 45px;
     margin-right: 5px;
@@ -58,7 +65,6 @@ body {
     margin-top: 0px;
     width: 11%;
 }
-
 
 
 form {
@@ -99,6 +105,7 @@ input {
 
 
 #full-body-wrapper {
+    min-width: 320px;
     margin: 3vw;
     margin-top: 0;
     margin-top: 0;
@@ -137,6 +144,7 @@ input {
 
 #hero-des-list {
     min-height: 120px;
+    text-align: center;
 }
 
 #hero-des-list h2 {
@@ -220,6 +228,15 @@ input {
     max-width: 227px;
 }
 
+#tn-display {
+    list-style-type: none;
+    display: flex;
+}
+
+#tn-display img {
+    margin: 10px 5px;
+}
+
 footer {
     margin-bottom: 2em;
     text-align: center;
@@ -281,25 +298,101 @@ td {
 }
 
 
-@media screen and (min-width: 500px) {
+#prod-display {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#prod-display li {
+    margin-bottom: .5em;
+    border: 1px #ccc solid;
+    list-style-type: none;
+    flex: 1 1 auto;
+}
+
+#prod-display li img {
+    width: 100%;
+    height: 200px;
+}
+
+#product-container {
+    display: flex;
+}
+
+#product-container .productTitle,
+#product-container .productDetails {
+    margin: 10px;
+}
+
+.productTitle,
+.productTitle h1 {
+    justify-self: center;
+    text-align: center;
+    align-self: center;
+}
+
+.productTitle img {
+    width: 500px;
+    max-width: 100%;
+}
+
+/* 
+.productDetails {
+    align-self: descEnd;
+    font-size: small;
+} */
+
+@media screen and (max-width: 500px) {
     #full-body-wrapper {
         margin: 6vw;
         margin-top: 0;
     }
-}
 
-#hero-des-list {
-    font-size: 1.3vw;
-}
 
-#hero-list {
-    background-color: unset;
-}
+    #hero-des-list {
+        font-size: 1.3vw;
+    }
 
-#featured-recipes img {
-    border-right: 35px solid lightgrey;
-    border-left: 35px solid lightgrey;
-    width: 150px;
+    #hero-list {
+        background-color: unset;
+    }
+
+    #featured-recipes img {
+        border-right: 35px solid lightgrey;
+        border-left: 35px solid lightgrey;
+        width: 150px;
+    }
+
+    #prod-display li img {
+        width: 200px;
+        height: 200px;
+    }
+
+    #product-container {
+        grid-template-columns: [header-start] 50% [header-end description-start] 50% [des-end];
+        grid-template-rows: unset;
+        grid-column-gap: 10px;
+    }
+
+    .productTitle,
+    .productTitle h1 {
+        justify-self: center;
+        text-align: center
+            /* align-self: center; */
+    }
+
+    .productTitle img {
+        width: 200px;
+        max-width: 100%;
+    }
+
+    /* 
+    .productDetails {
+        align-self: desc;
+        font-size: small;
+    } */
 }
 
 @media screen and (min-width: 800px) {
@@ -319,5 +412,17 @@ td {
         border-right: 35px solid lightgrey;
         border-left: 35px solid lightgrey;
         width: 150px;
+    }
+
+    #prod-display {
+        flex-flow: row wrap;
+        justify-content: flex-start;
+    }
+
+    #prod-display li {
+        max-width: 200px;
+        flex: 1 0 auto;
+        text-align: center;
+        max-height: 400px;
     }
 }
