@@ -22,7 +22,6 @@
                 </div>
                 <div id="prod_imgs">
                     <?php echo $imagesDisplay;?>
-
                 </div>
             </main>
             <div id="line-break"></div>

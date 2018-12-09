@@ -19,7 +19,9 @@
             <main>
                 <div id="home-container">
                     <h1 id="main-title">Welcome to Acme!</h1>
-                    <?php echo $featureView;?>
+                    <div id="product-container">
+                        <?php echo $featureView;?>
+                    </div>
 
                     <!-- Unneeded stuff left for reference -->
                     <!-- <section id="acme-rocket">
@@ -41,7 +43,7 @@
                     </section>
 
                     </section> -->
-                    <section id="full-flex-container">
+                    <!-- <section id="full-flex-container">
                         <section id="rocket-reviews">
                             <h2 class="title">Acme Rocket Reviews</h2>
                             <ul>
@@ -51,39 +53,39 @@
                                 <li>"I didn't even have to pull the meat apart." (4.5/5)</li>
                                 <li>"I'm on my thirtieth one. I love these things!" (5/5)</li>
                             </ul>
-                        </section>
-                        <section id="featured-recipes">
-                            <h2 id="feat-rec-title" class="title">Featured Recipes</h2>
-                            <div class="flex_recipe_container">
-                                <div id="bbq">
-                                    <img src="./images/recipes/bbqsand.jpg" alt="">
-                                    <p>
-                                        <a href="#">Pulled Roadrunner BBQ</a>
-                                    </p>
-                                </div>
-                                <div id="potpie">
-                                    <img src="./images/recipes/potpie.jpg" alt="">
-                                    <p>
-                                        <a href="#">Roadrunner Pot Pie</a>
-                                    </p>
-                                </div>
+                        </section> -->
+                    <section id="featured-recipes">
+                        <h2 id="feat-rec-title" class="title">Featured Recipes</h2>
+                        <div class="flex_recipe_container">
+                            <div id="bbq">
+                                <img src="./images/recipes/bbqsand.jpg" alt="">
+                                <p>
+                                    <a href="#">Pulled Roadrunner BBQ</a>
+                                </p>
                             </div>
-                            <div class="flex_recipe_container">
-                                <div id="soup">
-                                    <img src="./images/recipes/soup.jpg" alt="">
-                                    <p>
-                                        <a href="#">Roadrunner Soup</a>
-                                    </p>
-                                </div>
-                                <div id="taco">
-                                    <img src="./images/recipes/taco.jpg" alt="">
-                                    <p>
-                                        <a href="#">Roadrunner Tacos</a>
-                                    </p>
-                                </div>
+                            <div id="potpie">
+                                <img src="./images/recipes/potpie.jpg" alt="">
+                                <p>
+                                    <a href="#">Roadrunner Pot Pie</a>
+                                </p>
                             </div>
-                        </section>
+                        </div>
+                        <div class="flex_recipe_container">
+                            <div id="soup">
+                                <img src="./images/recipes/soup.jpg" alt="">
+                                <p>
+                                    <a href="#">Roadrunner Soup</a>
+                                </p>
+                            </div>
+                            <div id="taco">
+                                <img src="./images/recipes/taco.jpg" alt="">
+                                <p>
+                                    <a href="#">Roadrunner Tacos</a>
+                                </p>
+                            </div>
+                        </div>
                     </section>
+                    <!-- </section> -->
                 </div>
                 <div id="content-container" class="hide">
                     <h1 id="content-head">Products</h1>

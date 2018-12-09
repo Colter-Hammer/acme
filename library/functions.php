@@ -16,12 +16,22 @@ function navBar($categories)
 
 // Build featured view
 function createFeaturedView($featureDetails) {
-    $feature = "<section id='acme-rocket'><section id='hero-list'><ul id='hero-des-list'>";
-    $feature .= "<li><h2>$featureDetails[invName]</h2></li>";
-    $feature .= "<li>$featureDetails[invDescription]</li>";
-    $feature .= "<li><a href='/acme/products/?action=prodDetails&productId=$featureDetails[invId]'><img id='actionbtn' alt='Add to cart button' src='./images/site/iwantit.gif'></a></li>";
-    $feature .= "</ul></section></section>";
-    return $feature;
+    // $details = "<section id='acme-rocket'><section id='hero-list'><ul id='hero-des-list'>";
+    // $details .= "<li><h2>$featureDetails[invName]</h2></li>";
+    // $details .= "<li>$featureDetails[invDescription]</li>";
+    // $details .= "<li><a href='/acme/products/?action=prodDetails&productId=$featureDetails[invId]'><img id='actionbtn' alt='Add to cart button' src='./images/site/iwantit.gif'></a></li>";
+    // $details .= "</ul></section></section>";
+
+    $details = "<div class='productTitle'>";
+    $details .= "<img src='$featureDetails[invImage]' alt='$featureDetails[invName]' class='productImg'>";
+    $details .= "</div>";
+    $details .= "<div class='productDetails'>";
+    $details .= "<h2>$featureDetails[invName]</h2>";
+    $details .= "<p id='productDescription'>$featureDetails[invDescription]</p>";
+    $details .= "<a href='/acme/products/?action=prodDetails&productId=$featureDetails[invId]'><img id='actionbtn' alt='Add to cart button' src='./images/site/iwantit.gif'></a>";
+    $details .= "</div>";
+
+    return $details;
 }
 
 
