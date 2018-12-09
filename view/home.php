@@ -19,25 +19,28 @@
             <main>
                 <div id="home-container">
                     <h1 id="main-title">Welcome to Acme!</h1>
-                    <section id="acme-rocket">
-                        <section id="hero-list">
-                            <!-- Hero description text -->
-                            <ul id="hero-des-list">
-                                <li>
-                                    <h2>Acme Rocket</h2>
-                                </li>
-                                <li>Quick lighting fuse</li>
-                                <li>NHTSA approved seat belts</li>
-                                <li>Mobile launch stand included</li>
-                                <li>
-                                    <a href="#">
-                                        <img id="actionbtn" alt="Add to cart button" src="./images/site/iwantit.gif">
-                                    </a>
-                                </li>
-                            </ul>
-                        </section>
+                    <?php echo $featureView;?>
 
+                    <!-- Unneeded stuff left for reference -->
+                    <!-- <section id="acme-rocket">
+                        <section id="hero-list">
+                            Hero description text
+                    <ul id="hero-des-list">
+                        <li>
+                            <h2>Acme Rocket</h2>
+                        </li>
+                        <li>Quick lighting fuse</li>
+                        <li>NHTSA approved seat belts</li>
+                        <li>Mobile launch stand included</li>
+                        <li>
+                            <a href="#">
+                                <img id="actionbtn" alt="Add to cart button" src="./images/site/iwantit.gif">
+                            </a>
+                        </li>
+                    </ul>
                     </section>
+
+                    </section> -->
                     <section id="full-flex-container">
                         <section id="rocket-reviews">
                             <h2 class="title">Acme Rocket Reviews</h2>

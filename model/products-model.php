@@ -190,3 +190,39 @@ function getProductDetails($productId) {
  $stmt->closeCursor();
  return $productDetails;
 }
+
+function getFeatured($which = 'curr') {
+ $db = acmeConnect();
+ $sql = 'SELECT * FROM inventory WHERE invFeatured = 1';
+ $stmt = $db->prepare($sql);
+ $stmt->execute();
+ $prevFeatured = $stmt->fetch(PDO::FETCH_ASSOC);
+ $stmt->closeCursor();
+ if ($which === 'prev') {
+     removeFeatured();
+     return $prevFeatured['invName'];
+ }
+ return $prevFeatured;
+}
+
+function removeFeatured() {
+ $db = acmeConnect();
+ $sql = 'UPDATE `inventory` SET `invFeatured` = NULL WHERE `invFeatured` is not NULL';
+ $stmt = $db->prepare($sql);
+ $stmt->execute();
+ $stmt->closeCursor();
+ return;
+}
+
+function setFeatured($productId) {
+ removeFeatured();
+ $db = acmeConnect();
+ $sql = 'UPDATE inventory SET invFeatured = 1 WHERE inventory . invId  = :productId';
+ $stmt = $db->prepare($sql);
+ $stmt->bindValue(':productId', $productId, PDO::PARAM_INT);
+ $stmt->execute();
+ $stmt->closeCursor();
+ $productDetails = getFeatured();
+ echo $productDetails;
+ return $productDetails;
+}

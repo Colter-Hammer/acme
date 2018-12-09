@@ -2,8 +2,10 @@
 <div id="my-account">
     <span>
 
-        <?php if (isset($cookieFirstname)) {
-    echo "<span>Welcome $cookieFirstname</span>";
+        <?php if (!isset($_COOKIE['firstname'])) {
+            echo "<span><a href='/acme/accounts'>$_SESSION[welcomeMessage]</a></span>";
+} else {
+    echo "<span>Welcome $_COOKIE[firstname]</span>";
 }
 
 if (isset($_SESSION['loggedin'])) {
@@ -16,6 +18,7 @@ if (isset($_SESSION['loggedin'])) {
 }
 ?>
 </div>
+
 <!-- Debug template stuff -->
 <!-- <span id="template"> -->
 <!-- <a href="/acme/index.php?action=template">Template page</a></span> -->

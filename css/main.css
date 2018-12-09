@@ -11,6 +11,10 @@ a {
     color: inherit;
 }
 
+li {
+    list-style-type: none;
+}
+
 *,
 *:before,
 *:after {
@@ -335,6 +339,8 @@ td {
 
 .productTitle img {
     width: 500px;
+    max-width: 500px;
+    max-height: 500px;
     max-width: 100%;
 }
 

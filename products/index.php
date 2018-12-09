@@ -199,9 +199,8 @@ switch ($action) {
         break;
         case 'prodDetails':
             $productId = filter_input(INPUT_GET, 'productId', FILTER_SANITIZE_STRING);
-            $productDetails = getProductDetails($productId)[0];
-            // print_r($productDetails);
-            $prod = buildProdDetailsDisplay($productDetails);
+            $productDetails = getProductDetails($productId);
+            $prod = buildProdDetailsDisplay($productDetails[0]);
 
             $extraImgs = getTn($productId);
             
@@ -209,18 +208,33 @@ switch ($action) {
             
             include '../view/product-details.php';
         break;
+        case 'feature':
+            $productId = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
+            $prevFeature = getFeatured('prev');
+            if (count($prevFeature)) {
+                $_SESSION['message'] = "$prevFeature is no longer featured";
+            } else {
+                $_SESSION['message'] = "There was no previously featured product";
+            }
+            $setFeature = setFeatured($productId);
+            if (count($setFeature)) {
+                $_SESSION['message'] .= "<div>$setFeature[invName] is now being featured </div>";
+            }
+            header('location: /acme/products/');
+        break;
     default:
         $products = getProductBasics();
         if (count($products) > 0) {
             $prodList = '<table>';
             $prodList .= '<thead>';
-            $prodList .= '<tr><th>Product Name</th><td>&nbsp;</td><td>&nbsp;</td></tr>';
+            $prodList .= '<tr><th>Product Name</th><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>';
             $prodList .= '</thead>';
             $prodList .= '<tbody>';
             foreach ($products as $product) {
                 $prodList .= "<tr><td>$product[invName]</td>";
                 $prodList .= "<td><a href='/acme/products?action=mod&id=$product[invId]' title='Click to modify'>Modify</a></td>";
-                $prodList .= "<td><a href='/acme/products?action=del&id=$product[invId]' title='Click to delete'>Delete</a></td></tr>";
+                $prodList .= "<td><a href='/acme/products?action=del&id=$product[invId]' title='Click to delete'>Delete</a></td>";
+                $prodList .= "<td><a href='/acme/products?action=feature&id=$product[invId]' title='Click to delete'>Feature</a></td></tr>";
             }
             $prodList .= '</tbody></table>';
         } else {

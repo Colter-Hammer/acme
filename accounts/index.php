@@ -122,15 +122,19 @@ switch ($action) {
 // Store the array into the session
         $_SESSION['clientData'] = $clientData;
 
-        setcookie('firstname', $clientData['clientFirstname'], strtotime('+1 year'), '/');
+        // Create the welcome message based on $clientData;
+        $_SESSION['welcomeMessage'] = "Welcome $clientData[clientFirstname]";
+
+        // Delete $_COOKIE['firstname']
+        setcookie('firstname', '', time() - 3600, '/');
 
 // Send them to the admin view
         include '../view/admin.php';
-        exit;
-
         break;
 
     case 'logout':
+    // set $_COOKIE['firstname'];
+        setcookie('firstname', $_SESSION['clientData']['clientFirstname'], strtotime('+1 year'), '/');
         session_destroy();
         header('Location: /acme/');
         break;
@@ -192,8 +196,6 @@ switch ($action) {
             $message = "<p>Account information not changed</p>";
             
         }
-        
-
         include '../view/admin.php';
         break;
     case 'updatePassword':

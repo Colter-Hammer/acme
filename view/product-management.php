@@ -40,7 +40,11 @@ if (isset($_SESSION['message'])) {
                     <?php
 if (isset($message)) {
     echo $message;
-}if (isset($prodList)) {
+} else if(isset($_SESSION['message'])){
+    echo $_SESSION['message'];
+}
+
+if (isset($prodList)) {
     echo $prodList;
 }
 ?>

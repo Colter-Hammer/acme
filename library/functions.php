@@ -14,6 +14,17 @@ function navBar($categories)
     return $navList;
 }
 
+// Build featured view
+function createFeaturedView($featureDetails) {
+    $feature = "<section id='acme-rocket'><section id='hero-list'><ul id='hero-des-list'>";
+    $feature .= "<li><h2>$featureDetails[invName]</h2></li>";
+    $feature .= "<li>$featureDetails[invDescription]</li>";
+    $feature .= "<li><a href='/acme/products/?action=prodDetails&productId=$featureDetails[invId]'><img id='actionbtn' alt='Add to cart button' src='./images/site/iwantit.gif'></a></li>";
+    $feature .= "</ul></section></section>";
+    return $feature;
+}
+
+
 // Validate email input
 function checkEmail($clientEmail)
 {

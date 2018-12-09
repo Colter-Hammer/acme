@@ -15,7 +15,6 @@ if (!$_SESSION['loggedin']) {
         <div id="full-body-wrapper">
             <header id="page-header">
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/header.php';?>
-
             </header>
 
             <nav id="navigation">
