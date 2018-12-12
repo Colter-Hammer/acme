@@ -3,10 +3,8 @@
 
     <head>
         <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Add a Category</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
+        <link rel="stylesheet" type="text/css" href="/acme/css/improved.css" media="screen" />
     </head>
 
     <body>
@@ -33,6 +31,7 @@
                 </form>
 
             </main>
+            <div id="line-break"></div>
             <footer>
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/footer.php';?>
             </footer>

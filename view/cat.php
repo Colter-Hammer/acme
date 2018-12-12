@@ -3,8 +3,9 @@
 
     <head>
         <title>
-            <?php echo $categoryName; ?> Products | Acme, Inc.</title>
-        <link rel="stylesheet" type="text/css" href="/acme/css/main.css">
+            <?php echo $categoryName;?>Products | Acme, Inc.</title>
+
+        <link rel="stylesheet" type="text/css" href="/acme/css/improved.css" media="screen" />
     </head>
 
     <body>

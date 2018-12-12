@@ -8,7 +8,7 @@ if (!$_SESSION['loggedin']) {
 
     <head>
         <title>Admin View</title>
-        <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
+        <link rel="stylesheet" type="text/css" href="/acme/css/improved.css" media="screen" />
     </head>
 
     <body>
@@ -53,7 +53,7 @@ if (!$_SESSION['loggedin']) {
                     echo '<p>Use the following link to manage products</p>';
                     echo '<p><a href="../products/">Product Management</a></p>';
                 }
-                    echo '<a href="../accounts?action=update">Update Account</a>';
+                    echo '<p><a href="../accounts?action=update">Update Account</a></p>';
                 ?>
 
             </main>

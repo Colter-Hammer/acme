@@ -3,7 +3,7 @@
 
     <head>
         <title>Acme</title>
-        <link rel="stylesheet" type="text/css" href="./css/main.css" />
+        <link rel="stylesheet" type="text/css" href="/acme/css/improved.css" media="screen" />
     </head>
 
     <body>
@@ -23,40 +23,9 @@
                         <?php echo $featureView;?>
                     </div>
 
-                    <!-- Unneeded stuff left for reference -->
-                    <!-- <section id="acme-rocket">
-                        <section id="hero-list">
-                            Hero description text
-                    <ul id="hero-des-list">
-                        <li>
-                            <h2>Acme Rocket</h2>
-                        </li>
-                        <li>Quick lighting fuse</li>
-                        <li>NHTSA approved seat belts</li>
-                        <li>Mobile launch stand included</li>
-                        <li>
-                            <a href="#">
-                                <img id="actionbtn" alt="Add to cart button" src="./images/site/iwantit.gif">
-                            </a>
-                        </li>
-                    </ul>
-                    </section>
-
-                    </section> -->
-                    <!-- <section id="full-flex-container">
-                        <section id="rocket-reviews">
-                            <h2 class="title">Acme Rocket Reviews</h2>
-                            <ul>
-                                <li>"I don't know how I ever caught roadrunners before this." (9/10)</li>
-                                <li>"That thing was fast!" (4/5)</li>
-                                <li>"Talk about fast delivery." (5/5)</li>
-                                <li>"I didn't even have to pull the meat apart." (4.5/5)</li>
-                                <li>"I'm on my thirtieth one. I love these things!" (5/5)</li>
-                            </ul>
-                        </section> -->
                     <section id="featured-recipes">
                         <h2 id="feat-rec-title" class="title">Featured Recipes</h2>
-                        <div class="flex_recipe_container">
+                        <div class="flex_recipe_container recipes_1">
                             <div id="bbq">
                                 <img src="./images/recipes/bbqsand.jpg" alt="">
                                 <p>
@@ -69,8 +38,8 @@
                                     <a href="#">Roadrunner Pot Pie</a>
                                 </p>
                             </div>
-                        </div>
-                        <div class="flex_recipe_container">
+                            <!-- </div>
+                        <div class="flex_recipe_container recipes_2"> -->
                             <div id="soup">
                                 <img src="./images/recipes/soup.jpg" alt="">
                                 <p>
@@ -85,9 +54,8 @@
                             </div>
                         </div>
                     </section>
-                    <!-- </section> -->
                 </div>
-                <div id="content-container" class="hide">
+                <!-- <div id="content-container" class="hide">
                     <h1 id="content-head">Products</h1>
                     <div id="big-container">
                         <img id="content-img" src="#" alt="Content Image">
@@ -100,7 +68,7 @@
                             <p id="content-price"></p>
                         </section>
                     </div>
-                </div>
+                </div> -->
             </main>
             <div id="line-break"></div>
             <footer>

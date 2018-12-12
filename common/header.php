@@ -1,12 +1,13 @@
-<a href="/acme/index.php" id="logo-img"><img src="/acme/images/site/logo.gif" alt="Acme logo"></a>
+<a href="/acme/index.php"><img src="/acme/images/site/logo.gif" id="logo-img" alt="Acme logo"></a>
 <div id="my-account">
     <span>
 
-        <?php if (!isset($_COOKIE['firstname'])) {
+        <?php if (isset($_SESSION['welcomeMessage'])) {
             echo "<span><a href='/acme/accounts'>$_SESSION[welcomeMessage]</a></span>";
-} else {
-    echo "<span>Welcome $_COOKIE[firstname]</span>";
-}
+} 
+// else {
+//     echo "<span>Welcome $_COOKIE[firstname]</span>";
+// }
 
 if (isset($_SESSION['loggedin'])) {
     echo '<a href="/acme/accounts?action=logout"><img src="/acme/images/site/account.gif" alt="My Account">Logout</a></span>';

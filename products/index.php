@@ -212,13 +212,13 @@ switch ($action) {
             $productId = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
             $prevFeature = getFeatured('prev');
             if (count($prevFeature)) {
-                $_SESSION['message'] = "$prevFeature is no longer featured";
+                $_SESSION['message'] = "<div class='message'>$prevFeature is no longer featured</div>";
             } else {
-                $_SESSION['message'] = "There was no previously featured product";
+                $_SESSION['message'] = "<div class='message'>There was no previously featured product</div>";
             }
             $setFeature = setFeatured($productId);
             if (count($setFeature)) {
-                $_SESSION['message'] .= "<div>$setFeature[invName] is now being featured </div>";
+                $_SESSION['message'] .= "<div class='message'>$setFeature[invName] is now being featured </div>";
             }
             header('location: /acme/products/');
         break;

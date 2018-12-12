@@ -14,7 +14,8 @@ if (isset($_SESSION['message'])) {
 
     <head>
         <title>Product Management</title>
-        <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
+        <link rel="stylesheet" type="text/css" href="/acme/css/improved.css" media="screen" />
+
     </head>
 
     <body>
@@ -30,12 +31,12 @@ if (isset($_SESSION['message'])) {
             <main>
                 <div id="home-container">
                     <form>
-                        <input class="submit big_btn" type="button" onclick="location.href='../products/index.php?action=addcat'"
-                            value="Add a Category">
+                        <a href="../products/index.php?action=addcat" class="addThings">Add a Category</a>
+                        <!-- <input type="button" onclick="location.href='../products/index.php?action=addcat'" value="Add a Category"> -->
 
                         <br />
-                        <input class="submit big_btn" type="button" onclick="location.href='../products/index.php?action=addprod'"
-                            value="Add a Product">
+                        <a href="../products/index.php?action=addprod" class="addThings">Add a Category</a>
+                        <!-- <input type="button" onclick="location.href='../products/index.php?action=addprod'" value="Add a Product"> -->
                     </form>
                     <?php
 if (isset($message)) {

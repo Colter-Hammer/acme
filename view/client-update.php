@@ -8,7 +8,8 @@ if (!$_SESSION['loggedin']) {
 
     <head>
         <title>Update Account</title>
-        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="stylesheet" type="text/css" href="/acme/css/improved.css" media="screen" />
+
     </head>
 
     <body>
