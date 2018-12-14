@@ -54,6 +54,7 @@
                             </div>
                         </div>
                     </section>
+                </div>
             </main>
             <div id="line-break"></div>
             <footer>
