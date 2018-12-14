@@ -209,7 +209,7 @@ switch ($action) {
             include '../view/product-details.php';
         break;
         case 'feature':
-            $productId = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
+            $productId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
             $prevFeature = getFeatured('prev');
             if (count($prevFeature)) {
                 $_SESSION['message'] = "<div class='message'>$prevFeature is no longer featured</div>";

@@ -54,21 +54,6 @@
                             </div>
                         </div>
                     </section>
-                </div>
-                <!-- <div id="content-container" class="hide">
-                    <h1 id="content-head">Products</h1>
-                    <div id="big-container">
-                        <img id="content-img" src="#" alt="Content Image">
-                        <section id="content-flex-container">
-                            <p id="content-description"></p>
-                            <div>
-                                <p id="made-by"></p>
-                                <p id="reviews"></p>
-                            </div>
-                            <p id="content-price"></p>
-                        </section>
-                    </div>
-                </div> -->
             </main>
             <div id="line-break"></div>
             <footer>

@@ -5,9 +5,9 @@
         <?php if (isset($_SESSION['welcomeMessage'])) {
             echo "<span><a href='/acme/accounts'>$_SESSION[welcomeMessage]</a></span>";
 } 
-// else {
-//     echo "<span>Welcome $_COOKIE[firstname]</span>";
-// }
+elseif (isset($_COOKIE['firstname'])) {
+    echo "<span>Welcome $_COOKIE[firstname]</span>";
+}
 
 if (isset($_SESSION['loggedin'])) {
     echo '<a href="/acme/accounts?action=logout"><img src="/acme/images/site/account.gif" alt="My Account">Logout</a></span>';

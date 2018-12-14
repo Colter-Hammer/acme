@@ -147,7 +147,7 @@ main {
 #product-container {
     grid-area: product;
     display: grid;
-    grid-auto-columns: repeat(minmax(40% auto));
+    grid-auto-columns: minmax(40%, auto);
     grid-template-areas:
         "img details";
 }

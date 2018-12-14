@@ -22,6 +22,7 @@
                     <?php
 if (isset($message)) {
     echo $message;
+    unset($message);
 }
 ?>
                     <form method="post" action="/acme/accounts/index.php">
