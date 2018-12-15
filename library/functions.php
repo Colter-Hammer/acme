@@ -16,11 +16,6 @@ function navBar($categories)
 
 // Build featured view
 function createFeaturedView($featureDetails) {
-    // $details = "<section id='acme-rocket'><section id='hero-list'><ul id='hero-des-list'>";
-    // $details .= "<li><h2>$featureDetails[invName]</h2></li>";
-    // $details .= "<li>$featureDetails[invDescription]</li>";
-    // $details .= "<li><a href='/acme/products/?action=prodDetails&productId=$featureDetails[invId]'><img id='actionbtn' alt='Add to cart button' src='./images/site/iwantit.gif'></a></li>";
-    // $details .= "</ul></section></section>";
 
     $details = "<div class='productTitle'>";
     $details .= "<img src='$featureDetails[invImage]' alt='$featureDetails[invName]' class='productImg'>";

@@ -191,6 +191,13 @@ function getProductDetails($productId) {
  return $productDetails;
 }
 
+/**
+ * Get the item that is being featured
+ * if $which == 'prev', you are getting the item to then remove it.
+ * else you are getting the item to feature it.
+ * 
+ * @param \$which{string} Whether you're getting the current or previous featured item. Defaults to current
+ */
 function getFeatured($which = 'curr') {
  $db = acmeConnect();
  $sql = 'SELECT * FROM inventory WHERE invFeatured = 1';
@@ -205,6 +212,11 @@ function getFeatured($which = 'curr') {
  return $prevFeatured;
 }
 
+/**
+ * Remove the currently featured item.
+ * It will also set everything to NULL if it's not already like that
+ * I decided to add that feature as a sort of redundancy. If for some reason someone goes in and changes something, the code will still go in and make everything NULL
+ */
 function removeFeatured() {
  $db = acmeConnect();
  $sql = 'UPDATE `inventory` SET `invFeatured` = NULL WHERE `invFeatured` is not NULL';
@@ -214,6 +226,13 @@ function removeFeatured() {
  return;
 }
 
+
+/**
+ * Sets the featured item by inventory.invId
+ * Starts with removeFeatured() as a redundancy
+ * 
+ * @param \$productId{int}
+ */
 function setFeatured($productId) {
  removeFeatured();
  $db = acmeConnect();
@@ -223,6 +242,6 @@ function setFeatured($productId) {
  $stmt->execute();
  $stmt->closeCursor();
  $productDetails = getFeatured();
- echo $productDetails;
+//  echo $productDetails;
  return $productDetails;
 }

@@ -209,13 +209,19 @@ switch ($action) {
             include '../view/product-details.php';
         break;
         case 'feature':
-            $productId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+            $productId = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+            // Get the previous featured product and remove it
             $prevFeature = getFeatured('prev');
+            // Check for successful removal of previous feature
             if (count($prevFeature)) {
+                // No longer featuring past product
                 $_SESSION['message'] = "<div class='message'>$prevFeature is no longer featured</div>";
             } else {
+                // If there wasn't a product being featured before, tell the user
                 $_SESSION['message'] = "<div class='message'>There was no previously featured product</div>";
             }
+
+            // Sets the featured product from the productID
             $setFeature = setFeatured($productId);
             if (count($setFeature)) {
                 $_SESSION['message'] .= "<div class='message'>$setFeature[invName] is now being featured </div>";

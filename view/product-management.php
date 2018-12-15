@@ -35,7 +35,7 @@ if (isset($_SESSION['message'])) {
                         <!-- <input type="button" onclick="location.href='../products/index.php?action=addcat'" value="Add a Category"> -->
 
                         <br />
-                        <a href="../products/index.php?action=addprod" class="addThings">Add a Category</a>
+                        <a href="../products/index.php?action=addprod" class="addThings">Add a Product</a>
                         <!-- <input type="button" onclick="location.href='../products/index.php?action=addprod'" value="Add a Product"> -->
                     </form>
                     <?php

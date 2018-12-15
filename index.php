@@ -39,7 +39,7 @@ switch ($action) {
 
     // Build view for home
     $featureView = createFeaturedView($featured);
-    // print_r($featured);
+    
         include './view/home.php';
         break;
 }

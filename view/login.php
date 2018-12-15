@@ -20,11 +20,14 @@
                 <div id="home-container">
                     <h1>Acme Login</h1>
                     <?php
-if (isset($message)) {
-    echo $message;
-}
-
-?>
+                    if (isset($_SESSION['message'])) {
+                        $message = $_SESSION['message'];
+                        session_destroy();;
+                    }
+                    if (isset($message)) {
+                        echo $message;
+                    }
+                    ?>
                     <form method="post" action="/acme/accounts/">
                         <div>* Indicates required fields</div>
                         <label>Email Address*</label>

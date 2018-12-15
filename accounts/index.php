@@ -33,7 +33,7 @@ switch ($action) {
         include '../view/registration.php';
         break;
     case 'register':
-// Filter and store the data
+        // Filter and store the data
         $clientFirstname = filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_STRING);
         $clientLastname = filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_STRING);
         $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
@@ -44,27 +44,27 @@ switch ($action) {
 
         $existingEmail = checkExistingEmail($clientEmail);
 
-// Check for existing email address in the table
+        // Check for existing email address in the table
         if ($existingEmail) {
             $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
             include '../view/login.php';
             exit;
         }
 
-// Check for missing data
+        // Check for missing data
         if (empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($checkPassword)) {
             $message = '<p>Please provide information for all empty form fields.</p>';
             include '../view/registration.php';
             exit;
         }
 
-// Hash the checked password
+        // Hash the checked password
         $hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
 
-// Send the data to the model
+        // Send the data to the model
         $regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $hashedPassword);
 
-// Check and report the result
+        // Check and report the result
         if ($regOutcome === 1) {
             setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');
 
@@ -133,8 +133,6 @@ switch ($action) {
         break;
 
     case 'logout':
-    // set $_COOKIE['firstname'];
-        setcookie('firstname', $_SESSION['clientData']['clientFirstname'], strtotime('+1 year'), '/');
         session_destroy();
         header('Location: /acme/');
         break;

@@ -136,6 +136,10 @@ main {
         "recipes";
 }
 
+#home-container>p {
+    font-size: 2em
+}
+
 #main-title {
     grid-area: title;
     font-size: 3em;
